@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faadaakaa - own with Ease</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!--  TOP HEADER SECTION -->
+<header id="topHeader" class="w-full border-b border-[#D9E4F2]">
+  <!-- DESKTOP VIEW (unchanged) -->
+  <div
+    id="topHeaderContainer"
+    class="hidden lg:flex max-w-[1440px] mx-auto items-center justify-between px-[112px] h-[42px] bg-[#F9FAFB] text-[13px] text-[#495057]"
+  >
+    <div class="flex items-center gap-[8px]">
+      <span class="inline-flex items-center gap-[4px]">
+        <i class="fa-solid fa-phone text-[#6c757d] text-[12px]"></i>
+        (+234)9153888471,
+      </span>
+      <span>(+234)9153888470</span>
+      <span class="inline-flex items-center gap-[4px] ml-[8px]">
+        <i class="fa-regular fa-envelope text-[#6c757d] text-[12px]"></i>
+        <span>support@faadaakaa.com</span>
+      </span>
+    </div>
+
+    <div class="flex items-center gap-[10px]">
+      <a href="#" class="hover:text-[#0d6efd]">Terms</a>
+      <span class="w-[1px] h-[14px] bg-[#D9E4F2] block"></span>
+      <a href="#" class="hover:text-[#0d6efd]">Privacy</a>
+    </div>
+  </div>
+
+  <!-- TABLET + MOBILE VIEW -->
+  <div
+    class="lg:hidden flex flex-col md:flex-row md:items-center md:justify-between w-full bg-[#F9FAFB] px-4 py-3 text-[13px] text-[#495057] md:px-[40px]"
+  >
+    <!-- Phones & Email -->
+    <div class="flex flex-col md:flex-row md:items-center md:gap-[16px] gap-[4px]">
+      <div class="flex items-center gap-[6px]">
+        <i class="fa-solid fa-phone text-[#6c757d] text-[12px]"></i>
+        <span>(+234)9153888471, (+234)9153888470</span>
+      </div>
+      <div class="flex items-center gap-[6px]">
+        <i class="fa-regular fa-envelope text-[#6c757d] text-[12px]"></i>
+        <span>support@faadaakaa.com</span>
+      </div>
+    </div>
+
+    <!-- Divider (hidden on tablets) -->
+    <div class="h-[1px] bg-[#E4E7EC] my-[6px] md:hidden"></div>
+
+    <!-- Policy Links -->
+    <div
+      class="flex items-center justify-center md:justify-end gap-[10px] text-[13px] font-[500] md:mt-0"
+    >
+      <a href="#" class="hover:text-[#155EEF]">Terms</a>
+      <span class="w-[1px] h-[14px] bg-[#D9E4F2]"></span>
+      <a href="#" class="hover:text-[#155EEF]">Privacy</a>
+    </div>
+  </div>
+</header>
+
+  <!-- your MAIN HEADER follows here -->
+</header>
+<!--  MAIN HEADER -->
+<header id="mainHeader" class="w-full bg-[#FFFFFF] border-b border-[#EAECF0] relative">
+  <div
+    id="mainHeaderContainer"
+    class="max-w-[1440px] mx-auto flex items-center justify-between px-[16px] lg:px-[112px] h-[72px]"
+  >
+
+    <!--  Left Section: Logo -->
+    <div id="logoContainer" class="flex items-center">
+      <img
+        id="siteLogo"
+        src="./assets/images/logo.png"
+        alt="Faadaakaa Logo"
+        class="w-[120px] h-[28px] lg:w-[128px] lg:h-[32px] object-contain"
+      />
+    </div>
+
+    <!-- HAMBURGER BUTTON (mobile only) -->
+    <button
+      id="hamburgerBtn"
+      class="lg:hidden flex flex-col justify-between w-[26px] h-[20px] cursor-pointer z-50"
+    >
+      <span class="block w-full h-[2px] bg-[#155EEF] transition-all duration-300"></span>
+      <span class="block w-full h-[2px] bg-[#155EEF] transition-all duration-300"></span>
+      <span class="block w-full h-[2px] bg-[#155EEF] transition-all duration-300"></span>
+    </button>
+
+    <!--  Joined Category + Search (desktop only) -->
+    <div
+      id="searchContainer"
+      class="hidden lg:flex items-center w-[545px] h-[40px] ml-[64px] bg-[#FFFFFF] border border-[#D0D5DD] rounded-[8px] overflow-hidden"
+    >
+      <!-- Category Section -->
+      <div
+        id="categorySection"
+        class="flex items-center justify-between w-[150px] h-full px-[14px] bg-[#F2F4F7] cursor-pointer"
+      >
+        <span
+          class="text-[#344054] text-[14px] font-[500] leading-[22px] tracking-[-0.03em]"
+          >Category</span
+        >
+        <i class="fa-solid fa-chevron-down text-[#475467] text-[12px]"></i>
+      </div>
+      <div class="h-full w-[1px] bg-[#D0D5DD]"></div>
+      <!-- Search Input -->
+      <div
+        id="searchSection"
+        class="flex items-center w-full h-full px-[14px] bg-[#FFFFFF]"
+      >
+        <i
+          class="fa-solid fa-magnifying-glass text-[#475467] text-[14px] mr-[8px]"
+        ></i>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search"
+          class="w-full border-none outline-none bg-transparent text-[14px] text-[#667085] font-[400] placeholder-[#667085]"
+        />
+      </div>
+    </div>
+
+    <!-- Right Section (desktop only) -->
+    <div
+      id="rightHeader"
+      class="hidden lg:flex items-center justify-end gap-[16px] w-[495px] h-[40px]"
+    >
+      <!-- Cart with balance -->
+      <div id="cartContainer" class="flex items-center gap-[8px]">
+        <div
+          class="relative flex items-center justify-center w-[40px] h-[40px] border border-[#EAECF0] rounded-[8px] bg-[#FFFFFF]"
+        >
+          <i class="fa-solid fa-cart-shopping text-[#475467] text-[16px]"></i>
+          <span
+            class="absolute top-[4px] right-[4px] bg-[#475467] text-white text-[10px] font-[600] leading-[14px] px-[4px] rounded-full"
+            >2</span
+          >
+        </div>
+        <span
+          class="text-[#101828] text-[14px] font-[500] leading-[22px] tracking-[-0.03em]"
+          >₦100,000</span
+        >
+      </div>
+
+      <!-- Auth Buttons -->
+      <div id="authButtons" class="flex items-center gap-[12px]">
+        <button
+          class="text-[#344054] text-[14px] font-[500] leading-[20px] px-[14px] py-[10px] rounded-[8px] hover:text-[#155EEF]"
+        >
+          Log in
+        </button>
+        <button
+          class="bg-[#155EEF] text-white text-[14px] font-[500] px-[14px] py-[10px] rounded-[8px] hover:bg-[#0047BA]"
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE DROPDOWN MENU -->
+  <div
+    id="mobileMenu"
+    class="lg:hidden hidden flex-col w-full bg-[#FFFFFF] border-t border-[#EAECF0] shadow-md absolute top-[72px] left-0 z-40"
+  >
+    <div class="flex flex-col px-[24px] py-[16px]">
+      <h4 class="text-[#101828] text-[14px] font-[600] mb-[8px]">Account</h4>
+      <a href="#" class="text-[#155EEF] text-[14px] mb-[6px]">Login</a>
+      <a href="#" class="text-[#155EEF] text-[14px] mb-[12px]">Signup</a>
+
+      <h4 class="text-[#101828] text-[14px] font-[600] mb-[8px]">Categories</h4>
+      <ul class="flex flex-col gap-[6px] text-[#344054] text-[14px]">
+        <li>Phones & Tablets</li>
+        <li>Home Electronics</li>
+        <li>Home, Kitchen & Laundry</li>
+        <li>ACs, Refrigerators & Coolers</li>
+        <li>Power Solutions & Inverters</li>
+        <li>Food & Consumables</li>
+      </ul>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="px-[24px] pb-[16px]">
+      <div
+        class="flex items-center w-full h-[40px] bg-[#FFFFFF] border border-[#D0D5DD] rounded-[8px] overflow-hidden"
+      >
+        <div
+          class="flex items-center justify-between w-[120px] h-full px-[14px] bg-[#F2F4F7]"
+        >
+          <span class="text-[#344054] text-[14px] font-[500]">Category</span>
+          <i class="fa-solid fa-chevron-down text-[#475467] text-[12px]"></i>
+        </div>
+        <div class="h-full w-[1px] bg-[#D0D5DD]"></div>
+        <div class="flex items-center w-full h-full px-[14px]">
+          <i
+            class="fa-solid fa-magnifying-glass text-[#475467] text-[14px] mr-[8px]"
+          ></i>
+          <input
+            type="text"
+            placeholder="Search"
+            class="w-full border-none outline-none bg-transparent text-[14px] text-[#667085] placeholder-[#667085]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- HERO SECTION -->
+<section
+  id="heroSection"
+  class="w-full flex justify-center mt-[32px] relative px-4 sm:px-6 lg:px-0"
+>
+  <div
+    id="heroContainer"
+    class="relative flex flex-col-reverse lg:flex-row justify-between items-center max-w-[1216px] w-full lg:h-[520px] h-auto px-[24px] lg:px-[64px] bg-[linear-gradient(to_bottom_right,#181D27,#535862)] rounded-[12px] overflow-visible"
+  >
+    <!-- CONTENT AREA -->
+    <div
+      id="heroContent"
+      class="flex flex-col gap-[24px] w-full lg:w-[451px] mt-[40px] lg:mt-[103px] text-center lg:text-left"
+    >
+      <!-- HEADING -->
+      <div
+        id="heroHeading"
+        class="flex flex-col gap-[8px] items-center lg:items-start"
+      >
+        <div
+          id="heroCaption"
+          class="flex items-center gap-[8px] justify-center lg:justify-start"
+        >
+          <div
+            class="w-[24px] border-t-[2px] border-[#FFFFFF]"
+          ></div>
+          <h4
+            class="text-[#FFFFFF] text-[14px] font-[500] uppercase tracking-[0.05em]"
+          >
+            The best place to play
+          </h4>
+        </div>
+
+        <h2
+          class="text-[#FFFFFF] text-[36px] sm:text-[44px] lg:text-[56px] font-[700] leading-[44px] sm:leading-[54px] lg:leading-[64px]"
+        >
+          Xbox Consoles
+        </h2>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <p
+        class="text-[#FFFFFF] text-[14px] sm:text-[16px] leading-[22px] tracking-[-0.03em] max-w-[356px] mx-auto lg:mx-0"
+      >
+        Save up to 50% on select Xbox games. Get 3 months of PC Game Pass for $2
+        USD.
+      </p>
+
+      <!-- CTA BUTTON -->
+      <div class="flex justify-center lg:justify-start">
+        <button
+          id="heroBtn"
+          class="bg-[#FFFFFF] text-[#155EEF] text-[15px] sm:text-[16px] font-[500] leading-[22px] rounded-[8px] w-[180px] sm:w-[202px] h-[44px] sm:h-[48px] border border-[#FFFFFF] hover:bg-[#155EEF] hover:text-[#FFFFFF] transition-colors duration-200"
+        >
+          Shop Now!
+        </button>
+      </div>
+    </div>
+
+    <!-- IMAGE AREA -->
+    <div id="heroSlides" class="relative w-[85%] sm:w-[70%] lg:w-[513px] h-auto mt-[40px] lg:mt-[56px] flex justify-center overflow-hidden">
+  <!-- Single Slide -->
+  <div class="slide opacity-100 transition-opacity duration-700 ease-in-out">
+    <img src="./assets/images/hero1.png" alt="Xbox Console" class="w-full h-auto object-contain" />
+  </div>
+</div> 
+
+      <!-- PRICE TAG -->
+     <div
+  class="absolute top-[12px] right-[10%] lg:top-[80px] lg:right-[80px] flex justify-center items-center bg-[linear-gradient(to_right,#0017E4,#3793FF)] text-white w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] lg:w-[94px] lg:h-[94px] rounded-full text-[13px] sm:text-[14px] lg:text-[16px] font-[600] shadow-md"
+>
+  $299
+</div>
+
+ <!-- Overlay nav anchored to the hero card -->
+<div
+  id="heroNav"
+  class="absolute inset-y-0 left-0 right-0 flex items-center justify-between z-20 pointer-events-none"
+>
+  <!-- Prev -->
+  <button
+    id="prevButton"
+    class="pointer-events-auto absolute left-[-18px] sm:left-[-22px] lg:left-[-26px]
+           flex justify-center items-center
+           w-[44px] h-[44px] sm:w-[52px] sm:h-[52px] lg:w-[64px] lg:h-[64px]
+           rounded-full bg-white shadow-md rotate-180
+           hover:scale-105 transition-transform duration-300"
+  >
+    <i class="fa-solid fa-chevron-left text-[#667085] text-[14px] sm:text-[16px]"></i>
+  </button>
+
+  <!-- Next -->
+  <button
+    id="nextButton"
+    class="pointer-events-auto absolute right-[-18px] sm:right-[-22px] lg:right-[-26px]
+           flex justify-center items-center
+           w-[44px] h-[44px] sm:w-[52px] sm:h-[52px] lg:w-[64px] lg:h-[64px]
+           rounded-full bg-white shadow-md
+           hover:scale-105 transition-transform duration-300"
+  >
+    <i class="fa-solid fa-chevron-right text-[#667085] text-[14px] sm:text-[16px]"></i>
+  </button>
+  
+ 
+<!-- Carousel Dots -->
+<div
+  id="carouselControls"
+  class="absolute left-1/2 translate-x-[-50%] bottom-[-35px] sm:bottom-[-40px] lg:bottom-[-25px]
+         flex justify-center items-center gap-[7px] z-[30]"
+>
+  <div class="active-dot w-[24px] h-[8px] rounded-[7px] bg-[#155EEF]"></div>
+  <div class="inactive-dot w-[8px] h-[8px] rounded-full bg-[#EAECF0]"></div>
+  <div class="inactive-dot w-[8px] h-[8px] rounded-full bg-[#EAECF0]"></div>
+  <div class="inactive-dot w-[8px] h-[8px] rounded-full bg-[#EAECF0]"></div>
+  <div class="inactive-dot w-[8px] h-[8px] rounded-full bg-[#EAECF0]"></div>
+  <div class="inactive-dot w-[8px] h-[8px] rounded-full bg-[#EAECF0]"></div>
+  <div class="inactive-dot w-[8px] h-[8px] rounded-full bg-[#EAECF0]"></div>
+</div>
+
+</section>
+
+
+<!--  TOP PRODUCTS SECTION (Responsive) -->
+<section class="bg-[#F7F7F7] py-10 px-4 sm:px-6 md:px- mt-[60px] md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <!-- Heading -->
+    <h2 class="text-xl sm:text-2xl font-semibold text-[#101828] mb-6 sm:mb-8">Top Products</h2>
+
+    <!-- Main Grid Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+      <!--  Left: 15KVA Servo Voltage Stabilizer -->
+      <a href="/product/15kva-stabilizer"
+         class="block relative bg-[#101828] rounded-xl overflow-hidden w-full h-[420px] sm:h-[520px] lg:h-[600px]">
+        
+        <!-- Image -->
+        <img src="./assets/images/stabilizer.png" 
+             alt="15KVA Servo Voltage Stabilizer"
+             class="absolute left-1/2 -translate-x-[48%] top-0 w-[90%] sm:w-[480px] lg:w-[519px] h-full object-contain" />
+
+        <!-- Text Content -->
+        <div class="absolute text-white left-[20px] bottom-[24px] sm:bottom-[40px] w-[90%] sm:w-[264px]">
+          <h3 class="text-lg sm:text-2xl font-semibold leading-[28px] sm:leading-8 -tracking-[0.03em]">
+            15KVA Servo Voltage Stabilizer...
+          </h3>
+
+          <!-- Price -->
+          <div class="flex flex-wrap items-center gap-2 sm:gap-3 mt-1">
+            <p class="text-[15px] sm:text-[16px] font-medium leading-[22px]">₦176,500.00</p>
+            <p class="text-[12px] font-normal leading-[18px] opacity-90 -tracking-[0.03em]">
+              ₦26,791.67/month
+            </p>
+          </div>
+        </div>
+      </a>
+
+      <!--  Right Column -->
+      <div class="flex flex-col gap-6 w-full">
+        
+        <!--  Growatt Smart Hybrid Inverter -->
+        <a href="/product/growatt-hybrid-inverter"
+           class="bg-[#101828] rounded-[12px] flex flex-col sm:flex-row justify-between items-end w-full h-[320px] sm:h-[284px] p-4 overflow-hidden relative">
+          
+          <!-- Text Content -->
+          <div class="text-white flex flex-col justify-end w-full sm:w-[274px] h-[126px] pb-[20px] sm:pb-[32px] pl-[10px] sm:pl-[32px]">
+            <h3 class="text-lg sm:text-2xl font-semibold leading-[28px] sm:leading-[32px] -tracking-[0.03em] mb-[10px] sm:mb-[16px]">
+              GROWATT Smart Hybrid Inverter...
+            </h3>
+
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+              <p class="text-[15px] sm:text-[16px] font-medium leading-[22px]">₦326,500.00</p>
+              <p class="text-[12px] font-normal leading-[18px] opacity-90 -tracking-[0.03em]">
+                ₦26,791.67/month
+              </p>
+            </div>
+          </div>
+
+          <!-- Product Image -->
+          <div class="flex justify-center sm:justify-end items-end w-full sm:w-[284px] h-[180px] sm:h-[284px]">
+            <img src="./assets/images/smartinverter.png"
+                 alt="Growatt Smart Hybrid Inverter"
+                 class="object-contain w-[200px] sm:w-[284px] h-[200px] sm:h-[284px] sm:translate-y-[18px]" />
+          </div>
+        </a>
+
+        <!--  Two Smaller Products (iPhone + Refrigerator) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Apple iPhone 16 -->
+          <a href="/product/iphone-16-256gb"
+             class="relative bg-[#101828] rounded-xl overflow-hidden w-full h-[284px]">
+            <img src="./assets/images/Apple.png" alt="Apple iPhone 16"
+                 class="absolute left-1/2 -translate-x-[35%] top-[24px] w-[160px] sm:w-[210px] h-[160px] sm:h-[210px] object-contain" />
+
+            <!-- Text Content -->
+            <div class="absolute text-white left-[20px] bottom-[10px] sm:left-[24px] sm:bottom-[10px] w-[90%] sm:w-[281.5px]">
+              <h3 class="text-[15px] sm:text-[16px] font-semibold leading-[22px] -tracking-[0.03em]">
+                Apple iPhone 16 –<br>8GB 256GB
+              </h3>
+
+              <div class="flex flex-wrap items-center gap-2 sm:gap-3 mt-2">
+                <p class="text-[14px] font-medium leading-[20px]">₦1,462,500.00</p>
+                <p class="text-[12px] font-normal leading-[18px] opacity-90">₦121,875.00/month</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- BRUHM Single Door Refrigerator -->
+          <a href="/product/bruhm-single-door"
+             class="relative bg-[#101828] rounded-xl overflow-hidden w-full h-[284px]">
+            <img src="./assets/images/refrigerator.png" alt="BRUHM Single Door Refrigerator"
+                 class="absolute left-1/2 -translate-x-[35%] top-[24px] w-[160px] sm:w-[210px] h-[160px] sm:h-[210px] object-contain" />
+
+            <div class="absolute text-white left-[20px] bottom-[10px] sm:left-[24px] sm:bottom-[30px] w-[90%] sm:w-[242px]">
+              <h3 class="text-[15px] sm:text-[16px] font-semibold leading-[22px] -tracking-[0.03em]">
+                BRUHM Single Door<br>Refrigerator...
+              </h3>
+
+              <div class="flex flex-wrap items-center gap-2 sm:gap-3 mt-2">
+                <p class="text-[14px] font-medium leading-[20px]">₦1,177,000.00</p>
+                <p class="text-[12px] font-normal leading-[18px] opacity-90">₦121,875.00/month</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY SECTION -->
+<section id="categorySection" class="w-full flex justify-center mt-[64px] px-[16px]">
+  <div
+    id="categoryContainer"
+    class="max-w-[1216px] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] bg-[#FFFFFF] rounded-[12px] py-[16px]"
+  >
+
+    <!-- CATEGORY ITEM 1 -->
+    <div
+      id="category-electronics"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F8F9FC] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='electronics.html';"
+    >
+      <img src="./assets/images/HDTV.png" alt="Home Electronics" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        Home Electronics
+      </p>
+    </div>
+
+    <!-- CATEGORY ITEM 2 -->
+    <div
+      id="category-phones"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#FFF9F5] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='phones.html';"
+    >
+      <img src="./assets/images/Smartphone Tablet.png" alt="Phones & Tablets" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        Phones & Tablets
+      </p>
+    </div>
+
+    <!-- CATEGORY ITEM 3 -->
+    <div
+      id="category-kitchen"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F5F8FF] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='kitchen.html';"
+    >
+      <img src="./assets/images/Cooker.png" alt="Home, Kitchen & Laundry" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        Home, Kitchen & Laundry
+      </p>
+    </div>
+
+    <!-- CATEGORY ITEM 4 -->
+    <div
+      id="category-ac"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F8F9FC] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='electronics.html';"
+    >
+      <img src="./assets/images/HDTV.png" alt="Home Electronics" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        Home Electronics
+      </p>
+    </div>
+
+    <!-- CATEGORY ITEM 5 -->
+    <div
+      id="category-coolers"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F5FAFF] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='coolers.html';"
+    >
+      <img src="./assets/images/Fridge.png" alt="ACs, Refrigerators & Coolers" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        ACs, Refrigerators & Coolers
+      </p>
+    </div>
+
+    <!-- CATEGORY ITEM 6 -->
+    <div
+      id="category-power"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F9FAFB] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='power.html';"
+    >
+      <img src="./assets/images/Solar Panel.png" alt="Power Solutions & Inverters" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        Power Solutions & Inverters
+      </p>
+    </div>
+
+    <!-- CATEGORY ITEM 7 -->
+    <div
+      id="category-food"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#FEFDF0] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='food.html';"
+    >
+      <img src="./assets/images/Ingredients For Cooking.png" alt="Food & Consumables" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        Food & Consumables
+      </p>
+    </div>
+
+    <!-- CATEGORY ITEM 8 -->
+    <div
+      id="category-stationery"
+      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F5FAFF] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
+      onclick="window.location.href='stationery.html';"
+    >
+      <img src="./assets/images/Fridge.png" alt="Office & Stationery" class="w-[94px] h-[94px] object-contain" />
+      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
+        Office & Stationery
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Phones & Tablets Section -->
+<section class="bg-[#F7F7F7] py-10 px-4 sm:px-6 md:px-8">
+  <div class="max-w-[1216px] mx-auto flex flex-col gap-[24px] sm:gap-[28px] md:gap-[32px]">
+
+    <!-- Heading + Left Divider -->
+    <div class="flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center">
+        <span class="inline-block w-[4px] h-[24px] bg-[#004EEB] rounded-sm mr-[12px]"></span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[#101828]">Phones & Tablets</h2>
+      </div>
+      <a href="#" id="viewAllPhones" class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
+        View All
+      </a>
+    </div>
+
+    <!-- Dynamic Products Grid -->
+    <div id="phonesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] place-items-center">
+      <!-- jQuery will inject product cards here -->
+    </div>
+  </div>
+</section>
+
+<!-- Home Electronics Section -->
+<section class="bg-[#F7F7F7] py-10 px-4 sm:px-6 md:px-8">
+  <div class="max-w-[1216px] mx-auto flex flex-col gap-[24px] sm:gap-[28px] md:gap-[32px]">
+
+    <!-- Heading + Left Divider -->
+    <div class="flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center">
+        <span class="inline-block w-[4px] h-[24px] bg-[#004EEB] rounded-sm mr-[12px]"></span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[#101828]">Home Electronics</h2>
+      </div>
+      <a href="#" id="viewAllElectronics"
+         class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
+         View All
+      </a>
+    </div>
+
+    <!-- Products Grid (populated by jQuery) -->
+    <div id="electronicsGrid"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] place-items-center">
+      <!-- Product cards will be dynamically inserted here via jQuery -->
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ACs, Refrigerators & Coolers Section -->
+<section class="bg-[#F7F7F7] py-10 px-4 sm:px-6 md:px-8">
+  <div class="max-w-[1216px] mx-auto flex flex-col gap-[24px] sm:gap-[28px] md:gap-[32px]">
+
+    <!-- Heading + Left Divider -->
+    <div class="flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center">
+        <span class="inline-block w-[4px] h-[24px] bg-[#004EEB] rounded-sm mr-[12px]"></span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[#101828]">
+          ACs, Refrigerators & Coolers
+        </h2>
+      </div>
+      <a href="#" id="viewAllCooling"
+         class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
+         View All
+      </a>
+    </div>
+
+    <!-- Products Grid (populated dynamically via jQuery) -->
+    <div id="coolingGrid"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] place-items-center">
+      <!-- Dynamic content injected here -->
+    </div>
+
+  </div>
+</section>
+
+<!-- Power Solutions & Inverters Section -->
+<section class="bg-[#F7F7F7] py-10 px-4 sm:px-6 md:px-8">
+  <div class="max-w-[1216px] mx-auto flex flex-col gap-[24px] sm:gap-[28px] md:gap-[32px]">
+
+    <!-- Heading + Left Divider -->
+    <div class="flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center">
+        <span class="inline-block w-[4px] h-[24px] bg-[#004EEB] rounded-sm mr-[12px]"></span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[#101828]">
+          Power Solutions & Inverters
+        </h2>
+      </div>
+      <a href="#" id="viewAllPower"
+         class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
+         View All
+      </a>
+    </div>
+
+    <!-- Products Grid (populated dynamically via jQuery) -->
+    <div id="powerGrid"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] place-items-center">
+    </div>
+
+  </div>
+</section>
+
+<!-- Food & Consumables Section -->
+<section class="bg-[#F7F7F7] py-10 px-4 sm:px-6 md:px-8">
+  <div class="max-w-[1216px] mx-auto flex flex-col gap-[24px] sm:gap-[28px] md:gap-[32px]">
+
+    <!-- Heading + Left Divider -->
+    <div class="flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center">
+        <span class="inline-block w-[4px] h-[24px] bg-[#004EEB] rounded-sm mr-[12px]"></span>
+        <h2 class="text-xl sm:text-2xl font-semibold text-[#101828]">
+          Food & Consumables
+        </h2>
+      </div>
+      <a href="#" id="viewAllFood"
+         class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
+         View All
+      </a>
+    </div>
+
+    <!-- Products Grid (populated dynamically via jQuery) -->
+    <div id="foodGrid"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] place-items-center">
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Social Proof Section -->
+<section class="bg-[#F9FAFB] py-10 px-4 sm:px-6 md:px-8">
+  <div class="max-w-[1216px] mx-auto flex flex-col items-center gap-10">
+
+    <!-- Logos Grid Wrapper -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-[16px] sm:gap-[20px] md:gap-[24px] place-items-center w-full">
+
+      <!-- Logo Frame 1 -->
+      <div class="bg-white border border-[#E5E7EB] rounded-[16px] w-[160px] sm:w-[170px] md:w-[186px] h-[160px] sm:h-[175px] md:h-[190px] flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
+        <img src="./assets/images/hp.png" alt="HP Logo"
+             class="w-[70px] sm:w-[75px] md:w-[80px] h-[70px] sm:h-[75px] md:h-[80px] object-contain rounded-full bg-[#D9D9D9]">
+      </div>
+
+      <!-- Logo Frame 2 -->
+      <div class="bg-white border border-[#E5E7EB] rounded-[16px] w-[160px] sm:w-[170px] md:w-[186px] h-[160px] sm:h-[175px] md:h-[190px] flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
+        <img src="./assets/images/adidas.png" alt="Adidas Logo"
+             class="w-[70px] sm:w-[75px] md:w-[80px] h-[70px] sm:h-[75px] md:h-[80px] object-contain rounded-full bg-[#D9D9D9]">
+      </div>
+
+      <!-- Logo Frame 3 -->
+      <div class="bg-white border border-[#E5E7EB] rounded-[16px] w-[160px] sm:w-[170px] md:w-[186px] h-[160px] sm:h-[175px] md:h-[190px] flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
+        <img src="./assets/images/samsung.png" alt="Samsung Logo"
+             class="w-[70px] sm:w-[75px] md:w-[80px] h-[70px] sm:h-[75px] md:h-[80px] object-contain rounded-full bg-[#D9D9D9]">
+      </div>
+
+      <!-- Logo Frame 4 -->
+      <div class="bg-white border border-[#E5E7EB] rounded-[16px] w-[160px] sm:w-[170px] md:w-[186px] h-[160px] sm:h-[175px] md:h-[190px] flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
+        <img src="./assets/images/applelogo.png" alt="Apple Logo"
+             class="w-[70px] sm:w-[75px] md:w-[80px] h-[70px] sm:h-[75px] md:h-[80px] object-contain rounded-full bg-[#D9D9D9]">
+      </div>
+
+      <!-- Logo Frame 5 -->
+      <div class="bg-white border border-[#E5E7EB] rounded-[16px] w-[160px] sm:w-[170px] md:w-[186px] h-[160px] sm:h-[175px] md:h-[190px] flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
+        <img src="./assets/images/blueband.png" alt="Faadaakaa Logo"
+             class="w-[70px] sm:w-[75px] md:w-[80px] h-[70px] sm:h-[75px] md:h-[80px] object-contain rounded-full bg-[#D9D9D9]">
+      </div>
+
+      <!-- Logo Frame 6 -->
+      <div class="bg-white border border-[#E5E7EB] rounded-[16px] w-[160px] sm:w-[170px] md:w-[186px] h-[160px] sm:h-[175px] md:h-[190px] flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
+        <img src="./assets/images/redmi.png" alt="Mi Logo"
+             class="w-[70px] sm:w-[75px] md:w-[80px] h-[70px] sm:h-[75px] md:h-[80px] object-contain rounded-full bg-[#D9D9D9]">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ========================== FOOTER ========================== -->
+<footer class="w-full bg-[#011845] text-white font-inter">
+
+  <!-- =============== UPPER FOOTER (blue gradient band) =============== -->
+  <section class="w-full b">
+    <div class="mx-auto w-full max-w-[1216px] px-6 py-12
+                flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+
+      <!-- (L1) LEFT: logo + partners -->
+      <div class="flex flex-col gap-4 md:w-[320px]">
+        <!-- logo image -->
+        <img src="/assets/images/fadaka.png" alt="FaaDaaKaa"
+             class="h-[26.45px] md:w-[210px] w-[180px] object-contain" />
+        <p class="text-sm leading-[22px]">Payment methods &amp; Partners</p>
+
+        <div class="flex items-center gap-3">
+          <img src="/assets/images/visa.png"        alt="Visa"        class="w-[66.66px] h-[46px] object-contain">
+          <img src="/assets/images/mastercard.png"  alt="Mastercard"  class="w-[66.66px] h-[46px] object-contain">
+          <img src="/assets/images/lacofed.png"     alt="Coop"        class="w-[66.66px] h-[46px] object-contain">
+        </div>
+      </div>
+
+      <!-- ===== RIGHT SECTION (Support Info + Contact) ===== -->
+      <div class="flex flex-col gap-[20px] items-start md:items-end w-full md:w-[832px]">
+
+        <!-- Top Row: Headphone + Text -->
+        <div class="flex flex-row justify-end items-start gap-[8px] w-full">
+          <!-- Headphone Image -->
+          <div class="w-[66px] h-[55px] flex justify-center items-center">
+            <img 
+              src="/assets/images/Vector (1).svg" 
+              alt="Support Headset" 
+              class="w-[58px] h-[55px] object-contain"
+            />
+          </div>
+
+          <!-- Contact Text Column -->
+          <div class="flex flex-col justify-start md:items-end">
+
+            <!-- Got Questions (Email) -->
+            <p class="text-[12px] leading-[22px] mb-[4px]">
+              Got questions? Email us: 
+              <span class="font-medium">support@faadaakaa.com</span>
+            </p>
+
+            <!-- Phone Numbers -->
+            <p class="text-[20px] leading-[32px] mb-[8px]">
+              (+234)9153888471, (+234)9153888470
+            </p>
+
+            <!-- Terms & Privacy (with divider between them) -->
+            <div class="flex items-center justify-end gap-[8px] text-[#D0D5DD] text-[14px] leading-[22px]">
+              <a href="#" class="hover:text-white transition-colors">Terms</a>
+              <span class="block w-px h-[14px] bg-[#667085]"></span>
+              <a href="#" class="hover:text-white transition-colors">Privacy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== LOWER FOOTER =================== -->
+  <section class="w-full border-t border-[#352F8E]">
+    <div class="mx-auto w-full max-w-[1216px] px-6 py-12 
+                flex flex-col md:flex-row items-center justify-between gap-10">
+
+      <!-- Copyright Text -->
+      <p class="text-[#D0D5DD] text-[16px] leading-[24px] text-center md:text-left">
+        ©️ 2025 Faadaakaa. All rights reserved.
+      </p>
+
+      <!-- Social Icons (Images as clickable links) -->
+      <div class="flex items-center gap-[24px]">
+        <!-- X (Twitter) -->
+        <a href="#" target="_blank" aria-label="Twitter">
+          <img src="/assets/images/twitter.png" 
+               alt="Twitter" 
+               class="w-[24px] h-[24px] object-contain hover:opacity-80 transition-all duration-200">
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="#" target="_blank" aria-label="LinkedIn">
+          <img src="/assets/images/linkedin.png" 
+               alt="LinkedIn" 
+               class="w-[24px] h-[24px] object-contain hover:opacity-80 transition-all duration-200">
+        </a>
+
+        <!-- Facebook -->
+        <a href="#" target="_blank" aria-label="Facebook">
+          <img src="/assets/images/facebook.png" 
+               alt="Facebook" 
+               class="w-[24px] h-[24px] object-contain hover:opacity-80 transition-all duration-200">
+        </a>
+      </div>
+    </div>
+  </section>
+</footer>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
