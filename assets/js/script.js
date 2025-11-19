@@ -1,4 +1,44 @@
 $(document).ready(function () {
+
+    // dropdon menu category
+    
+  $("#categorySection").on("click", function (e) {
+    e.stopPropagation();
+
+    $("#categoryDropdown").toggle();
+
+    // Responsive position
+    let topValue = window.innerWidth < 640 ? 50 : 60;     // small screens vs large
+    let leftValue = window.innerWidth < 640 ? 0 : 300;    // mobile vs desktop
+
+    $("#categoryDropdown").css({
+      position: "absolute",
+      top: topValue + "px",
+      left: leftValue + "px"
+    });
+  });
+
+  // Close when clicking outside
+  $(document).on("click", function (e) {
+    if (!$(e.target).closest("#categoryWrapper").length) {
+      $("#categoryDropdown").hide();
+    }
+  });
+  
+// Cart dropdown
+  // OPEN / CLOSE CART DROPDOWN
+$("#cartContainer").on("click", function (e) {
+  e.stopPropagation();
+  $("#cartDropdown").toggle();
+});
+
+// CLOSE WHEN CLICKING OUTSIDE
+$(document).on("click", function (e) {
+  if (!$(e.target).closest("#cartContainer, #cartDropdown").length) {
+    $("#cartDropdown").hide();
+  }
+});
+
   const $slides = $("#heroSlides .slide");
   const $dots = $("#carouselControls div");
   const totalSlides = $slides.length;
@@ -6,11 +46,11 @@ $(document).ready(function () {
   const slideDuration = 5000;
   let autoSlide;
 
-  // 🔹 Clear all previously running timers if any
+  //  Clear all previously running timers if any
   for (let i = 1; i < 99999; i++) clearInterval(i);
   for (let i = 1; i < 99999; i++) clearTimeout(i);
 
-  // 🔹 Function to show a specific slide
+  //  Function to show a specific slide
   function showSlide(index) {
     $slides.removeClass("opacity-100").addClass("opacity-0");
     $slides.eq(index).removeClass("opacity-0").addClass("opacity-100");
@@ -25,7 +65,7 @@ $(document).ready(function () {
       .addClass("bg-[#155EEF] w-[24px] h-[8px] rounded-[7px]");
   }
 
-  // 🔹 Always initialize the first slide
+  //  Always initialize the first slide
   showSlide(currentSlide);
 
   // 🔹 If there’s only one slide
@@ -97,7 +137,25 @@ $(document).ready(function () {
         spans.eq(2).css({ transform: "rotate(0)" });
       }
     });
+let currentX = 0;
+const itemWidth = 196; // 180px + margin
+const visibleItems = 6;
+const totalItems = $("#categoryTrack .catItem").length;
+const maxX = -(itemWidth * (totalItems - visibleItems));
 
+$("#catNext").click(function () {
+    if (currentX > maxX) {
+        currentX -= itemWidth;
+        $("#categoryTrack").css("transform", `translateX(${currentX}px)`);
+    }
+});
+
+$("#catPrev").click(function () {
+    if (currentX < 0) {
+        currentX += itemWidth;
+        $("#categoryTrack").css("transform", `translateX(${currentX}px)`);
+    }
+});
 
   // ---------- REUSABLE CATEGORY FUNCTION ----------
   function renderCategory(gridSelector, buttonSelector, itemsArray) {
@@ -138,13 +196,7 @@ $(document).ready(function () {
     // Initial render (only first 4)
     renderItems(4);
 
-    // View All / Show Less toggle
-    $button.on("click", function (e) {
-      e.preventDefault();
-      showingAll = !showingAll;
-      renderItems(showingAll ? itemsArray.length : 4);
-      $(this).text(showingAll ? "Show Less" : "View All");
-    });
+    
   }
 
   // ---------- PHONES & TABLETS ----------
@@ -331,8 +383,141 @@ renderCategory("#coolingGrid", "#viewAllCooling", cooling);
   ];
 
   // Initialize category
-  renderCategory("#foodGrid", "#viewAllFood", food);
+   renderCategory("#foodGrid", "#viewAllFood", food);
+
+
+  // 1. Categories + keywords
+const categories = [
+  {
+    name: "Phones & Tablets",
+    keyword: [
+      "phone", "phones", "tablet", "tablets", "iphone", "android", "smartphone",
+      "itel", "samsung", "tecno", "infinix", "ipad"
+    ],
+    page: "phones.html"
+  },
+
+  {
+    name: "Home Electronics",
+    keyword: [
+      "electronics", "tv", "television", "smart tv", "led tv", "uhd", "4k",
+      "speaker", "fan", "sound", "mora", "hisense", "bruhm"
+    ],
+    page: "electronics.html"
+  },
+
+  {
+    name: "Home, Kitchen & Laundry",
+    keyword: [
+      "kitchen", "laundry", "home", "cooker", "gas", "microwave",
+      "washing", "blender", "toaster", "oven"
+    ],
+    page: "kitchen.html"
+  },
+
+  {
+    name: "ACs, Refrigerators & Coolers",
+    keyword: [
+      "ac", "air conditioner", "refrigerator", "fridge", "freezer",
+      "cooler", "kenstar", "bruhm", "ht", "deep freezer"
+    ],
+    page: "acs.html"
+  },
+
+  {
+    name: "Power Solutions & Inverters",
+    keyword: [
+      "inverter", "solar", "battery", "generator", "power", "stabilizer",
+      "growatt", "itel energy", "solar panel"
+    ],
+    page: "power.html"
+  },
+
+  {
+    name: "Food & Consumables",
+    keyword: [
+      "food", "rice", "bag rice", "mama's pride", "mama gold",
+      "aga rice", "parboiled", "grain"
+    ],
+    page: "food.html"
+  },
+
+  {
+    name: "Office & Stationery",
+    keyword: [
+      "stationery", "office", "pen", "book", "notebook", "paper", "printer"
+    ],
+    page: "stationery.html"
+  }
+];
+
+// ---------- GLOBAL SEARCH FUNCTION ----------
+$("#searchInput").on("keyup", function () {
+    let query = $(this).val().toLowerCase().trim();
+
+    if (query === "") return; // empty → do nothing
+
+    // Check each category list
+    for (let cat of categories) {
+        // If any keyword contains the query → redirect
+        if (cat.keyword.some(k => k.toLowerCase().includes(query))) {
+            window.location.href = cat.page;
+            return;
+        }
+    }
+});
 
 });
 
 
+
+// ---------- PAYMENT DROPDOWN FOR PRODUCT PAGE----------
+const $clickArea = $("#paymentClickArea");
+const $dropdown  = $("#paymentDropdown");
+const $input     = $("#paymentInput");
+
+// Open dropdown and position correctly
+$clickArea.on("click", function (e) {
+  e.stopPropagation();
+
+  const isMobile = window.innerWidth < 1024; // below lg
+
+  if (!isMobile) {
+    // DESKTOP / LARGE SCREENS → position with JS
+    const rect = this.getBoundingClientRect();
+
+    $dropdown.css({
+      position: "absolute",
+      top: rect.bottom + window.scrollY + "px",
+      left: rect.left + 20 + "px"                    
+    });
+  } else {
+    // MOBILE → let your Tailwind/HTML control the position
+    $dropdown.css({
+      position: "",   
+      top: "320px",
+      left: "50px",
+      width: ""       
+    });
+  }
+
+  $dropdown.toggleClass("hidden");
+});
+
+// CLICK ITEM → PUT INTO INPUT
+$(".dropdown-item").on("click", function () {
+  $input.val($(this).text());
+  $dropdown.addClass("hidden");
+});
+
+// CLICK OUTSIDE → CLOSE
+$(document).on("click", function (event) {
+  if (
+    !$dropdown.is(event.target) &&
+    $dropdown.has(event.target).length === 0 &&
+    !$clickArea.is(event.target) &&
+    $clickArea.has(event.target).length === 0
+  ) {
+    $dropdown.addClass("hidden");
+  }
+});

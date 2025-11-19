@@ -70,106 +70,222 @@
   </div>
 </header>
 
-  <!-- your MAIN HEADER follows here -->
+  
 </header>
 <!--  MAIN HEADER -->
+<!--  MAIN HEADER -->
 <header id="mainHeader" class="w-full bg-[#FFFFFF] border-b border-[#EAECF0] relative">
-  <div
-    id="mainHeaderContainer"
-    class="max-w-[1440px] mx-auto flex items-center justify-between px-[16px] lg:px-[112px] h-[72px]"
-  >
 
-    <!--  Left Section: Logo -->
-    <div id="logoContainer" class="flex items-center">
-      <img
-        id="siteLogo"
-        src="./assets/images/logo.png"
-        alt="Faadaakaa Logo"
-        class="w-[120px] h-[28px] lg:w-[128px] lg:h-[32px] object-contain"
-      />
-    </div>
+  <div class="max-w-[1440px] mx-auto flex items-center justify-between px-[16px] lg:px-[112px] h-[72px]">
 
-    <!-- HAMBURGER BUTTON (mobile only) -->
-    <button
-      id="hamburgerBtn"
-      class="lg:hidden flex flex-col justify-between w-[26px] h-[20px] cursor-pointer z-50"
-    >
-      <span class="block w-full h-[2px] bg-[#155EEF] transition-all duration-300"></span>
-      <span class="block w-full h-[2px] bg-[#155EEF] transition-all duration-300"></span>
-      <span class="block w-full h-[2px] bg-[#155EEF] transition-all duration-300"></span>
-    </button>
+    <!-- LEFT GROUP (LOGO + SEARCH) -->
+    <div class="flex items-center gap-[32px]">
+        
 
-    <!--  Joined Category + Search (desktop only) -->
-    <div
-      id="searchContainer"
-      class="hidden lg:flex items-center w-[545px] h-[40px] ml-[64px] bg-[#FFFFFF] border border-[#D0D5DD] rounded-[8px] overflow-hidden"
-    >
-      <!-- Category Section -->
+      <!-- LOGO -->
+      <a href="index.html" id="logoContainer" class="flex items-center">
+  <img
+    id="siteLogo"
+    src="./assets/images/logo.png"
+    alt="Faadaakaa Logo"
+    class="w-[140px] h-[32px] sm:w-[160px] sm:h-[36px] lg:w-[190px] lg:h-[44px] object-contain"
+  />
+</a>
+      
+
+      <!-- SEARCH + CATEGORY -->
       <div
-        id="categorySection"
-        class="flex items-center justify-between w-[150px] h-full px-[14px] bg-[#F2F4F7] cursor-pointer"
+        id="searchContainer"
+        class="hidden lg:flex items-center w-[445px] h-[40px] bg-[#FFFFFF] border border-[#D0D5DD] rounded-[8px] overflow-hidden"
       >
-        <span
-          class="text-[#344054] text-[14px] font-[500] leading-[22px] tracking-[-0.03em]"
-          >Category</span
-        >
-        <i class="fa-solid fa-chevron-down text-[#475467] text-[12px]"></i>
-      </div>
-      <div class="h-full w-[1px] bg-[#D0D5DD]"></div>
-      <!-- Search Input -->
-      <div
-        id="searchSection"
-        class="flex items-center w-full h-full px-[14px] bg-[#FFFFFF]"
-      >
-        <i
-          class="fa-solid fa-magnifying-glass text-[#475467] text-[14px] mr-[8px]"
-        ></i>
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Search"
-          class="w-full border-none outline-none bg-transparent text-[14px] text-[#667085] font-[400] placeholder-[#667085]"
-        />
-      </div>
-    </div>
-
-    <!-- Right Section (desktop only) -->
-    <div
-      id="rightHeader"
-      class="hidden lg:flex items-center justify-end gap-[16px] w-[495px] h-[40px]"
-    >
-      <!-- Cart with balance -->
-      <div id="cartContainer" class="flex items-center gap-[8px]">
+        <!-- Category Section -->
         <div
-          class="relative flex items-center justify-center w-[40px] h-[40px] border border-[#EAECF0] rounded-[8px] bg-[#FFFFFF]"
+          id="categorySection"
+          class="relative flex items-center justify-between w-[150px] h-full px-[14px] bg-[#F2F4F7] cursor-pointer"
         >
-          <i class="fa-solid fa-cart-shopping text-[#475467] text-[16px]"></i>
-          <span
-            class="absolute top-[4px] right-[4px] bg-[#475467] text-white text-[10px] font-[600] leading-[14px] px-[4px] rounded-full"
-            >2</span
-          >
+          <span class="text-[#344054] text-[14px] font-[500] leading-[22px] tracking-[-0.03em]">Category</span>
+          <i class="fa-solid fa-chevron-down text-[#475467] text-[12px]"></i>
         </div>
-        <span
-          class="text-[#101828] text-[14px] font-[500] leading-[22px] tracking-[-0.03em]"
-          >₦100,000</span
+
+        <div class="h-full w-[1px] bg-[#D0D5DD]"></div>
+
+        <!-- Category Dropdown -->
+        <div
+          id="categoryDropdown"
+          class="hidden absolute w-[240px] bg-white rounded-[16px] border border-[#EAECF0] shadow-[0px_8px_40px_rgba(0,0,0,0.12)] z-50"
         >
+          <div class="flex flex-col py-[6px]">
+
+            <a href="./phones.html" class="text-left px-4 h-[36px] flex items-center text-[14px] text-[#344054] hover:bg-[#F9FAFB]">Phones & Tablets</a>
+
+            <a href="./electronics.html" class="text-left px-4 h-[36px] flex items-center text-[14px] text-[#344054] hover:bg-[#F9FAFB]">Home Electronics</a>
+
+            <a href="./kitchen.html" class="text-left px-4 h-[36px] flex items-center text-[14px] text-[#344054] hover:bg-[#F9FAFB]">Home, Kitchen & Laundry</a>
+
+            <a href="./acs.html" class="text-left px-4 h-[36px] flex items-center text-[14px] text-[#344054] hover:bg-[#F9FAFB]">ACs, Refrigerators & Coolers</a>
+
+            <a href="./power.html" class="text-left px-4 h-[36px] flex items-center text-[14px] text-[#344054] hover:bg-[#F9FAFB]">Power Solution & Inverters</a>
+
+            <a href="./food.html" class="text-left px-4 h-[36px] flex items-center text-[14px] text-[#344054] hover:bg-[#F9FAFB]">Food & Consumables</a>
+
+          </div>
+        </div>
+
+        <!-- Search Input -->
+        <div id="searchSection" class="flex items-center w-full h-full px-[14px] bg-[#FFFFFF]">
+          <i class="fa-solid fa-magnifying-glass text-[#475467] text-[14px] mr-[8px]"></i>
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search"
+            class="w-full border-none outline-none bg-transparent text-[14px] text-[#667085] font-[400] placeholder-[#667085]"
+          />
+        </div>
       </div>
 
-      <!-- Auth Buttons -->
-      <div id="authButtons" class="flex items-center gap-[12px]">
-        <button
-          class="text-[#344054] text-[14px] font-[500] leading-[20px] px-[14px] py-[10px] rounded-[8px] hover:text-[#155EEF]"
-        >
-          Log in
-        </button>
-        <button
-          class="bg-[#155EEF] text-white text-[14px] font-[500] px-[14px] py-[10px] rounded-[8px] hover:bg-[#0047BA]"
-        >
+    </div>
+
+
+
+    <!-- RIGHT GROUP (CART + PRICE + LOGIN + SIGNUP) -->
+    <div class="flex items-center gap-[24px]">
+
+      <!-- CART + PRICE -->
+      <div id="rightHeader" class="hidden lg:flex items-center gap-[16px] h-[40px]">
+
+        <!-- CART WRAPPER -->
+        <div id="cartWrapper" class="relative">
+
+          <!-- CART ICON -->
+          <div id="cartContainer" class="flex items-center gap-[8px] cursor-pointer">
+            <div class="relative flex items-center justify-center w-[40px] h-[40px] 
+                        border border-[#EAECF0] rounded-[8px] bg-[#FFFFFF]">
+              <i class="fa-solid fa-cart-shopping text-[#475467] text-[16px]"></i>
+
+              <!-- Badge -->
+              <span
+                class="absolute top-[4px] right-[4px] bg-[#475467] 
+                       text-white text-[10px] font-[600] leading-[14px] 
+                       px-[4px] rounded-full"
+              >2</span>
+            </div>
+          </div>
+
+          <!-- FULL SHOPPING CART DROPDOWN (UNCHANGED) -->
+          <div
+            id="cartDropdown"
+            class="hidden absolute right-0 mt-2 w-[376px] h-[415px] 
+                   bg-white border border-[#EAECF0] rounded-[16px] 
+                   shadow-[0px_8px_40px_rgba(0,0,0,0.12)] z-50 flex flex-col"
+          >
+            <!-- Heading Section -->
+            <div class="flex items-center justify-start gap-[6px] 
+                        w-full h-[54px] border-b border-[#EAECF0]
+                        px-[24px] py-[16px]">
+              <span class="text-[#101828] text-[14px] font-[500]">Shopping Cart</span>
+              <span class="text-[#667085] text-[14px] font-[500]">(02)</span>
+            </div>
+
+            <!-- PRODUCT LIST WRAPPER -->
+            <div class="flex flex-col w-full px-[24px] py-[20px] gap-[16px] border-b border-[#EAECF0]">
+
+              <!-- PRODUCT ITEM 1 -->
+               <a href="productdetails.html">
+              <div class="flex items-center w-[328px] min-h-[80px] gap-[16px]">
+
+                <img src="./assets/images/iphone16promax.png" class="w-[80px] h-[80px] object-cover rounded-[8px]" />
+
+                <div class="flex flex-col w-[200px] gap-[8px]">
+                  <span class="text-[#101828] text-[14px] leading-[22px]">
+                    Canon EOS 1500D DSLR <br />
+                    Camera Body+ 18–55 mm
+                  </span>
+
+                  <div class="flex items-center gap-[4px]">
+                    <span class="text-[#475467] text-[14px]">1 x</span>
+                    <span class="text-[#004EEB] text-[14px]">₦1,462,500.00</span>
+                  </div>
+                </div>
+
+                <i class="fa-solid fa-xmark text-[#98A2B3] text-[16px] cursor-pointer"></i>
+              </div>
+              </a>
+
+              <!-- PRODUCT ITEM 2 -->
+               <a href="productdetails.html">
+              <div class="flex items-center w-[328px] min-h-[80px] gap-[16px]">
+
+                <img src="./assets/images/iphone16promax.png" class="w-[80px] h-[80px] object-cover rounded-[8px]" />
+
+                <div class="flex flex-col w-[200px] gap-[8px]">
+                  <span class="text-[#101828] text-[14px] leading-[22px]">
+                    Canon EOS 1500D DSLR <br />
+                    Camera Body+ 18–55 mm
+                  </span>
+
+                  <div class="flex items-center gap-[4px]">
+                    <span class="text-[#475467] text-[14px]">1 x</span>
+                    <span class="text-[#004EEB] text-[14px]">₦1,462,500.00</span>
+                  </div>
+                </div>
+
+                <i class="fa-solid fa-xmark text-[#98A2B3] text-[16px] cursor-pointer"></i>
+              </div>
+
+            </div>
+            </a>
+
+            <!-- SUBTOTAL -->
+            <div class="flex items-center justify-between w-full h-[53px] border-b border-[#EAECF0]
+                        px-[24px] py-[20px]">
+              <span class="text-[#475467] text-[14px]">Sub-Total:</span>
+              <span class="text-[#101828] text-[14px] font-[500]">₦1,925,000.00</span>
+            </div>
+
+            <!-- VIEW CART BUTTON -->
+            <div class="flex flex-col w-full border-t border-[#EAECF0] px-[24px] py-[20px] gap-[12px]">
+              <a href="./cart.html" class="block w-full">
+                <button class="w-full h-[48px] bg-[#004EEB] text-white rounded-[8px] text-[14px] font-[500]">
+                  View Cart
+                </button>
+              </a>
+            </div>
+
+            <div class="h-[16px] w-full"></div>
+          </div>
+
+        </div>
+
+        <span class="text-[#101828] text-[14px] font-[500]">₦100,000</span>
+      </div>
+
+      <!-- LOGIN + SIGNUP -->
+      <div id="authButtons" class="hidden lg:flex  items-center gap-[12px]">
+        <button class="text-[#344054] text-[14px] font-[500] px-[14px] py-[10px] rounded-[8px] hover:text-[#155EEF]">Log in</button>
+
+        <button class="bg-[#155EEF] text-white text-[14px] font-[500] px-[14px] py-[10px] rounded-[8px] hover:bg-[#0047BA]">
           Sign up
         </button>
       </div>
+
     </div>
+
   </div>
+  <!-- MOBILE HAMBURGER (RIGHT SIDE, ALIGNED WITH LOGO) -->
+<div class="lg:hidden flex items-center justify-end flex-1 pr-4">
+  <button
+    id="hamburgerBtn"
+    class="flex flex-col justify-between w-[26px] h-[20px] cursor-pointer z-50
+           translate-y-[-40px]"
+  >
+    <span class="block w-full h-[2px] bg-[#155EEF]"></span>
+    <span class="block w-full h-[2px] bg-[#155EEF]"></span>
+    <span class="block w-full h-[2px] bg-[#155EEF]"></span>
+  </button>
+</div>
+
+</header>
+<!-- HAMBURGER BUTTON (mobile only) -->
 
   <!-- MOBILE DROPDOWN MENU -->
   <div
@@ -183,13 +299,32 @@
 
       <h4 class="text-[#101828] text-[14px] font-[600] mb-[8px]">Categories</h4>
       <ul class="flex flex-col gap-[6px] text-[#344054] text-[14px]">
-        <li>Phones & Tablets</li>
-        <li>Home Electronics</li>
-        <li>Home, Kitchen & Laundry</li>
-        <li>ACs, Refrigerators & Coolers</li>
-        <li>Power Solutions & Inverters</li>
-        <li>Food & Consumables</li>
-      </ul>
+
+  <li>
+    <a href="./phones.html" class="hover:text-[#155EEF]">Phones & Tablets</a>
+  </li>
+
+  <li>
+    <a href="./electronics.html" class="hover:text-[#155EEF]">Home Electronics</a>
+  </li>
+
+  <li>
+    <a href="./kitchen.html" class="hover:text-[#155EEF]">Home, Kitchen & Laundry</a>
+  </li>
+
+  <li>
+    <a href="./acs.html" class="hover:text-[#155EEF]">ACs, Refrigerators & Coolers</a>
+  </li>
+
+  <li>
+    <a href="./power.html" class="hover:text-[#155EEF]">Power Solutions & Inverters</a>
+  </li>
+
+  <li>
+    <a href="./food.html" class="hover:text-[#155EEF]">Food & Consumables</a>
+  </li>
+
+</ul>
     </div>
 
     <!-- Mobile Search -->
@@ -209,10 +344,10 @@
             class="fa-solid fa-magnifying-glass text-[#475467] text-[14px] mr-[8px]"
           ></i>
           <input
-            type="text"
-            placeholder="Search"
-            class="w-full border-none outline-none bg-transparent text-[14px] text-[#667085] placeholder-[#667085]"
-          />
+  type="text"
+  placeholder="Search"
+  class="mobileSearchInput w-full border-none outline-none bg-transparent text-[14px] text-[#667085] placeholder-[#667085]"
+/>
         </div>
       </div>
     </div>
@@ -450,110 +585,128 @@
   </div>
 </section>
 
-<!-- CATEGORY SECTION -->
-<section id="categorySection" class="w-full flex justify-center mt-[64px] px-[16px]">
-  <div
-    id="categoryContainer"
-    class="max-w-[1216px] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[20px] bg-[#FFFFFF] rounded-[12px] py-[16px]"
-  >
+<!-- CATEGORY SLIDER SECTION -->
+<section id="categorySection" class="w-full flex justify-center mt-[80px] mb-[60px] px-[16px]">
 
-    <!-- CATEGORY ITEM 1 -->
-    <div
-      id="category-electronics"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F8F9FC] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='electronics.html';"
-    >
-      <img src="./assets/images/HDTV.png" alt="Home Electronics" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        Home Electronics
-      </p>
+  <div class="max-w-[1216px] w-full flex items-center gap-[20px]">
+
+    <!-- LEFT ARROW -->
+    <button id="catPrev"
+      class="w-[40px] h-[40px] flex items-center justify-center 
+             border border-[#D0D5DD] rounded-full bg-white 
+             text-[#475467] cursor-pointer hover:bg-[#F2F4F7] transition">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- SLIDER WRAPPER -->
+    <div id="categorySlider" class="overflow-hidden w-full">
+
+      <!-- TRACK -->
+      <div id="categoryTrack" class="flex gap-[16px] transition-all duration-300">
+
+        <!-- ITEMS (8 total) -->
+        <!-- 1 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#F8F9FC] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='electronics.html'">
+          <img src="./assets/images/HDTV.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            Home Electronics
+          </p>
+        </div>
+
+        <!-- 2 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#FFF9F5] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='phones.html'">
+          <img src="./assets/images/Smartphone Tablet.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            Phones & Tablets
+          </p>
+        </div>
+
+        <!-- 3 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#F5F8FF] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='kitchen.html'">
+          <img src="./assets/images/Cooker.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            Home, Kitchen & Laundry
+          </p>
+        </div>
+
+        <!-- 4 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#F8F9FC] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='electronics.html'">
+          <img src="./assets/images/HDTV.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            Home Electronics
+          </p>
+        </div>
+
+        <!-- 5 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#F5FAFF] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='coolers.html'">
+          <img src="./assets/images/Fridge.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            ACs, Refrigerators & Coolers
+          </p>
+        </div>
+
+        <!-- 6 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#F9FAFB] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='power.html'">
+          <img src="./assets/images/Solar Panel.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            Power Solutions & Inverters
+          </p>
+        </div>
+
+        <!-- 7 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#FEFDF0] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='food.html'">
+          <img src="./assets/images/Ingredients For Cooking.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            Food & Consumables
+          </p>
+        </div>
+
+        <!-- 8 -->
+        <div class="catItem flex flex-col items-center justify-center
+                    min-w-[180px] h-[160px] bg-[#F5FAFF] rounded-[12px] 
+                    p-[16px] cursor-pointer hover:bg-[#E8F1FF] transition"
+             onclick="window.location='stationery.html'">
+          <img src="./assets/images/Fridge.png" class="w-[56px] h-[56px] object-contain" />
+          <p class="text-[14px] font-[500] text-[#101828] mt-[8px] text-center">
+            Office & Stationery
+          </p>
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- CATEGORY ITEM 2 -->
-    <div
-      id="category-phones"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#FFF9F5] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='phones.html';"
-    >
-      <img src="./assets/images/Smartphone Tablet.png" alt="Phones & Tablets" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        Phones & Tablets
-      </p>
-    </div>
-
-    <!-- CATEGORY ITEM 3 -->
-    <div
-      id="category-kitchen"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F5F8FF] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='kitchen.html';"
-    >
-      <img src="./assets/images/Cooker.png" alt="Home, Kitchen & Laundry" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        Home, Kitchen & Laundry
-      </p>
-    </div>
-
-    <!-- CATEGORY ITEM 4 -->
-    <div
-      id="category-ac"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F8F9FC] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='electronics.html';"
-    >
-      <img src="./assets/images/HDTV.png" alt="Home Electronics" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        Home Electronics
-      </p>
-    </div>
-
-    <!-- CATEGORY ITEM 5 -->
-    <div
-      id="category-coolers"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F5FAFF] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='coolers.html';"
-    >
-      <img src="./assets/images/Fridge.png" alt="ACs, Refrigerators & Coolers" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        ACs, Refrigerators & Coolers
-      </p>
-    </div>
-
-    <!-- CATEGORY ITEM 6 -->
-    <div
-      id="category-power"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F9FAFB] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='power.html';"
-    >
-      <img src="./assets/images/Solar Panel.png" alt="Power Solutions & Inverters" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        Power Solutions & Inverters
-      </p>
-    </div>
-
-    <!-- CATEGORY ITEM 7 -->
-    <div
-      id="category-food"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#FEFDF0] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='food.html';"
-    >
-      <img src="./assets/images/Ingredients For Cooking.png" alt="Food & Consumables" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        Food & Consumables
-      </p>
-    </div>
-
-    <!-- CATEGORY ITEM 8 -->
-    <div
-      id="category-stationery"
-      class="categoryItem flex flex-col justify-center items-center w-full h-[200px] bg-[#F5FAFF] rounded-[12px] p-[24px] gap-[8px] hover:bg-[#E8F1FF] transition-all duration-300 cursor-pointer"
-      onclick="window.location.href='stationery.html';"
-    >
-      <img src="./assets/images/Fridge.png" alt="Office & Stationery" class="w-[94px] h-[94px] object-contain" />
-      <p class="text-[#101828] text-[18px] font-[500] leading-[22px] text-center tracking-[-0.03em]">
-        Office & Stationery
-      </p>
-    </div>
+    <!-- RIGHT ARROW -->
+    <button id="catNext"
+      class="w-[40px] h-[40px] flex items-center justify-center 
+             border border-[#D0D5DD] rounded-full bg-white 
+             text-[#475467] cursor-pointer hover:bg-[#F2F4F7] transition">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
 
   </div>
+
 </section>
 
 
@@ -567,7 +720,7 @@
         <span class="inline-block w-[4px] h-[24px] bg-[#004EEB] rounded-sm mr-[12px]"></span>
         <h2 class="text-xl sm:text-2xl font-semibold text-[#101828]">Phones & Tablets</h2>
       </div>
-      <a href="#" id="viewAllPhones" class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
+      <a href="./phones.html" id="viewAllPhones" class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
         View All
       </a>
     </div>
@@ -589,7 +742,7 @@
         <span class="inline-block w-[4px] h-[24px] bg-[#004EEB] rounded-sm mr-[12px]"></span>
         <h2 class="text-xl sm:text-2xl font-semibold text-[#101828]">Home Electronics</h2>
       </div>
-      <a href="#" id="viewAllElectronics"
+      <a href="./electronics.html" id="viewAllElectronics"
          class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
          View All
       </a>
@@ -617,7 +770,7 @@
           ACs, Refrigerators & Coolers
         </h2>
       </div>
-      <a href="#" id="viewAllCooling"
+      <a href="./acs.html" id="viewAllCooling"
          class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
          View All
       </a>
@@ -644,7 +797,7 @@
           Power Solutions & Inverters
         </h2>
       </div>
-      <a href="#" id="viewAllPower"
+      <a href="power.html" id="viewAllPower"
          class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
          View All
       </a>
@@ -670,7 +823,7 @@
           Food & Consumables
         </h2>
       </div>
-      <a href="#" id="viewAllFood"
+      <a href="/food.html" id="viewAllFood"
          class="text-[14px] sm:text-[15px] font-medium text-[#004EEB] hover:underline">
          View All
       </a>
