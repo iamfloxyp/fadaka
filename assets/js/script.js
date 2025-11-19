@@ -25,18 +25,38 @@ $(document).ready(function () {
     }
   });
   
-// Cart dropdown
-  // OPEN / CLOSE CART DROPDOWN
+// ============================
+// DESKTOP CART TOGGLE
+// ============================
 $("#cartContainer").on("click", function (e) {
-  e.stopPropagation();
-  $("#cartDropdown").toggle();
+    e.stopPropagation();
+    $("#cartDropdown").toggleClass("hidden");
+    $("#mobileCartDropdown").addClass("hidden"); // close mobile dropdown
 });
 
-// CLOSE WHEN CLICKING OUTSIDE
-$(document).on("click", function (e) {
-  if (!$(e.target).closest("#cartContainer, #cartDropdown").length) {
-    $("#cartDropdown").hide();
-  }
+// ============================
+// MOBILE CART TOGGLE (CORRECTED)
+// ============================
+// This uses #mobileCartBtn — the REAL ID inside the mobile menu
+$("#mobileCartBtn").on("click", function (e) {
+    e.stopPropagation();
+    $("#mobileCartDropdown").toggleClass("hidden");
+    $("#cartDropdown").addClass("hidden"); // close desktop dropdown
+});
+
+// ============================
+// CLICK OUTSIDE CLOSES ALL
+// ============================
+$(document).on("click", function () {
+    $("#cartDropdown").addClass("hidden");
+    $("#mobileCartDropdown").addClass("hidden");
+});
+
+// ============================
+// PREVENT CLOSING WHEN CLICKING INSIDE DROPDOWN
+// ============================
+$("#cartDropdown, #mobileCartDropdown").on("click", function (e) {
+    e.stopPropagation();
 });
 
   const $slides = $("#heroSlides .slide");
