@@ -3306,6 +3306,18 @@
     }
   }
 }
+/* hero slides */
+ #heroSlides { 
+  overflow: hidden;
+ }
+  #heroTrack { 
+    display: flex; 
+  }
+  .slide {
+     min-width: 100%;
+     }
+
+
   .active-underline {
     position: absolute;
     bottom: 0;

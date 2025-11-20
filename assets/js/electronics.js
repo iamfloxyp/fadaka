@@ -3,8 +3,6 @@
    Matches exactly the structure used in phones.js
    ============================================================ */
 
-$(document).ready(function () {
-
   // 1️⃣ ELECTRONICS PRODUCT LIST
   const electronics = [
     {
@@ -41,40 +39,52 @@ $(document).ready(function () {
       monthly: "₦33,000.00/month",
       total: "₦396,000.00",
       link: "./product-pages/bruhm-fridge.html"
-    }
+    },
+    {
+      name: "Hisense 55-inch Smart UHD TV",
+      image: "./assets/images/Hisense.png",
+      monthly: "₦38,083.33/month",
+      total: "₦1,177,000.00",
+      link: "./product-pages/hisense55.html"
+    },
+    
   ];
 
-  // 2️⃣ RENDER FUNCTION (same style as phones.js)
   function renderElectronics() {
-    const container = $("#electronicsGrid");
-
-    if (container.length === 0) return; // security check
-
-    container.html(""); // clear before inserting
+    const $grid = $("#electronicsListGrid"); 
+    $grid.empty();
 
     electronics.forEach(item => {
-      container.append(`
-        <a href="${item.link}"
-           class="block bg-white rounded-[12px] p-[12px] shadow-sm hover:shadow-lg transition-all duration-200">
+      const card = `
+       <a href="${item.link}" 
+   class="bg-[#F9FAFB] border border-[#EAECF0] rounded-[12px] 
+          flex flex-col w-full h-auto hover:shadow-md transition">
 
-          <img src="${item.image}"
-               alt="${item.name}"
-               class="w-full h-[150px] object-cover rounded-[8px] mb-[10px]" />
+    <div class="flex justify-center items-center border-b border-[#EAECF0] py-[10px] bg-[#EAECF0] rounded-t-[12px]">
+       <img src="${item.image}" 
+            alt="${item.name}" 
+            class="w-[80px] h-[80px] object-contain mx-auto">
+    </div>
 
-          <h3 class="text-[14px] font-[500] text-[#101828] leading-[20px] min-h-[40px]">
+    <div class="flex flex-col justify-between p-[10px] bg-white rounded-b-[12px] text-center">
+        <h3 class="text-[13px] font-semibold text-[#101828] leading-[18px]">
             ${item.name}
-          </h3>
+        </h3>
 
-          <p class="text-[12px] text-[#475467] mt-[6px]">From ${item.monthly}</p>
+        <div class="flex flex-col gap-[4px] mt-[8px]">
+            <p class="text-[12px] font-medium text-[#004EEB]">
+                ${item.monthly}
+            </p>
+            <p class="text-[12px] font-medium text-[#101828]">
+                ${item.total}
+            </p>
+        </div>
+    </div>
+ </a>
+      `;
 
-          <p class="text-[14px] font-[600] text-[#004EEB] mt-[2px]">
-            ${item.total}
-          </p>
-        </a>
-      `);
+      $grid.append(card);
     });
   }
 
-  // 3️⃣ Call Renderer
   renderElectronics();
-});

@@ -59,87 +59,61 @@ $("#cartDropdown, #mobileCartDropdown").on("click", function (e) {
     e.stopPropagation();
 });
 
-  const $slides = $("#heroSlides .slide");
-  const $dots = $("#carouselControls div");
-  const totalSlides = $slides.length;
-  let currentSlide = 0;
-  const slideDuration = 5000;
-  let autoSlide;
+//   ============================hero slides
+// ============================
+// HERO SLIDER (FULLY FIXED)
+// ============================
+const $slides = $(".heroSlide");
+const $track = $("#heroTrack");
+const $dots = $("#carouselControls .dot");
+const totalSlides = $slides.length;
+let currentSlide = 0;
+const slideDuration = 5000;
 
-  //  Clear all previously running timers if any
-  for (let i = 1; i < 99999; i++) clearInterval(i);
-  for (let i = 1; i < 99999; i++) clearTimeout(i);
+// Move track to slide
+function goToSlide(index) {
+  $track.css("transform", `translateX(-${index * 100}%)`);
 
-  //  Function to show a specific slide
-  function showSlide(index) {
-    $slides.removeClass("opacity-100").addClass("opacity-0");
-    $slides.eq(index).removeClass("opacity-0").addClass("opacity-100");
+  // Update dots
+  $dots
+    .removeClass("active-dot bg-[#155EEF] w-[24px] h-[8px] rounded-[7px]")
+    .addClass("bg-[#EAECF0] w-[8px] h-[8px] rounded-full");
 
-    $dots
-      .removeClass("bg-[#155EEF] w-[24px] h-[8px] rounded-[7px]")
-      .addClass("bg-[#EAECF0] w-[8px] h-[8px] rounded-full");
+  $dots
+    .eq(index)
+    .removeClass("bg-[#EAECF0] w-[8px] h-[8px] rounded-full")
+    .addClass("active-dot bg-[#155EEF] w-[24px] h-[8px] rounded-[7px]");
+}
 
-    $dots
-      .eq(index)
-      .removeClass("bg-[#EAECF0] w-[8px] h-[8px] rounded-full")
-      .addClass("bg-[#155EEF] w-[24px] h-[8px] rounded-[7px]");
-  }
+// Init
+goToSlide(currentSlide);
 
-  //  Always initialize the first slide
-  showSlide(currentSlide);
+// Auto slide
+let autoSlide = setInterval(() => {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  goToSlide(currentSlide);
+}, slideDuration);
 
-  // 🔹 If there’s only one slide
-  if (totalSlides === 1) {
-    // Keep it permanently active (safety enforcement)
-    function keepActive() {
-      $slides.eq(0).removeClass("opacity-0").addClass("opacity-100");
-      $dots.eq(0)
-        .removeClass("bg-[#EAECF0] w-[8px] h-[8px] rounded-full")
-        .addClass("bg-[#155EEF] w-[24px] h-[8px] rounded-[7px]");
-    }
+// Next button
+$("#nextButton").click(() => {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  goToSlide(currentSlide);
+  clearInterval(autoSlide);
+});
 
-    keepActive(); // run immediately
-    setInterval(keepActive, 3000); // re-apply every 3s just in case
+// Prev button
+$("#prevButton").click(() => {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  goToSlide(currentSlide);
+  clearInterval(autoSlide);
+});
 
-    // stop any auto sliding
-    clearInterval(autoSlide);
-    autoSlide = null;
-  } else {
-    // 🔹 Multiple slides → normal rotation
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      showSlide(currentSlide);
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      showSlide(currentSlide);
-    }
-
-    autoSlide = setInterval(nextSlide, slideDuration);
-
-    // Buttons
-    $("#nextButton").click(function () {
-      nextSlide();
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, slideDuration);
-    });
-
-    $("#prevButton").click(function () {
-      prevSlide();
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, slideDuration);
-    });
-
-    // Dots
-    $dots.click(function () {
-      currentSlide = $(this).index();
-      showSlide(currentSlide);
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, slideDuration);
-    });
-  }
-
+// Dots
+$dots.click(function () {
+  currentSlide = $(this).index();
+  goToSlide(currentSlide);
+  clearInterval(autoSlide);
+});
     // ---------- MOBILE MENU TOGGLE ----------
 
     $("#hamburgerBtn").click(function () {
@@ -157,10 +131,20 @@ $("#cartDropdown, #mobileCartDropdown").on("click", function (e) {
         spans.eq(2).css({ transform: "rotate(0)" });
       }
     });
+// ---------- HORIZONTAL SCROLLING FOR CATEGORIES ----------
 let currentX = 0;
-const itemWidth = 196; // 180px + margin
-const visibleItems = 6;
+
+// Dynamically calculate real item width including margin
+const itemWidth = $(".catItem").outerWidth(true);
+
+// Count number of visible items based on container width
+const containerWidth = $("#categorySlider").width();
+const visibleItems = Math.floor(containerWidth / itemWidth);
+
+// Total items
 const totalItems = $("#categoryTrack .catItem").length;
+
+// Maximum slide distance
 const maxX = -(itemWidth * (totalItems - visibleItems));
 
 $("#catNext").click(function () {
