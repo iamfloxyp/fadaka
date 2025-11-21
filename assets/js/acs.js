@@ -43,6 +43,7 @@
       total: "₦321,500.00",
       link: "./product-pages/bruhm-freezer.html",
     },
+    
   ];
 
  function renderacs() {

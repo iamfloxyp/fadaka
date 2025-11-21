@@ -42,6 +42,7 @@
       total: "₦2,356,250.00",
       link: "iphone16pro.html",
     },
+    
   ];
 
   function renderPhones() {

@@ -162,46 +162,58 @@ $("#catPrev").click(function () {
 });
 
   // ---------- REUSABLE CATEGORY FUNCTION ----------
-  function renderCategory(gridSelector, buttonSelector, itemsArray) {
-    const $grid = $(gridSelector);
-    const $button = $(buttonSelector);
-    let showingAll = false;
+function renderCategory(gridSelector, buttonSelector, itemsArray) {
+  const $grid = $(gridSelector);
+  const $button = $(buttonSelector);
+  let showingAll = false;
 
-    // Function to render items
-    function renderItems(limit = 4) {
-      $grid.empty();
-      const visibleItems = itemsArray.slice(0, limit);
+  function renderItems(limit = 4) {
+    $grid.empty();
+    const visibleItems = itemsArray.slice(0, limit);
 
-      $.each(visibleItems, function (_, item) {
-        const card = `
-          <a href="${item.link}" class="bg-[#F9FAFB] border border-[#EAECF0] rounded-[16px] flex flex-col w-[90%] sm:w-[289px] h-[306px] hover:shadow-lg transition-shadow duration-300">
-            <div class="flex justify-center items-center border-b border-[#EAECF0] py-[16px] bg-[#EAECF0] rounded-t-[16px]">
-              <img src="${item.image}" alt="${item.name}" class="w-[130px] sm:w-[148px] h-[130px] sm:h-[148px] object-contain">
+    $.each(visibleItems, function (_, item) {
+      const card = `
+        <a href="${item.link}"
+           class="bg-[#F9FAFB] border border-[#EAECF0] rounded-[12px]
+                  flex flex-col w-[150px] sm:w-[180px] md:w-[200px]
+                  h-[260px] hover:shadow-md transition">
+
+          <!-- IMAGE AREA -->
+          <div class="flex justify-center items-center border-b border-[#EAECF0]
+                      py-[10px] bg-[#EAECF0] rounded-t-[12px] h-[120px]">
+            <img src="${item.image}"
+                 alt="${item.name}"
+                 class="w-[80px] h-[80px] object-contain">
+          </div>
+
+          <!-- TEXT AREA -->
+          <div class="flex flex-col justify-between p-[10px] bg-white rounded-b-[12px] text-center h-[140px]">
+
+            <h3 class="text-[13px] font-semibold text-[#101828] leading-[18px]">
+              ${item.name}
+            </h3>
+
+            <div class="flex flex-col gap-[2px] mt-[6px]">
+              <p class="text-[12px] font-medium text-[#004EEB]">
+                ${item.monthly}
+              </p>
+              <p class="text-[12px] font-medium text-[#101828]">
+                ${item.total}
+              </p>
             </div>
-            <div class="flex flex-col justify-between p-[16px] h-[126px] bg-white rounded-b-[16px] text-center sm:text-left">
-              <h3 class="text-[15px] sm:text-[16px] font-semibold text-[#101828] leading-[22px] -tracking-[0.03em]">
-                ${item.name}
-              </h3>
-              <div class="flex flex-col gap-[4px] mt-[10px]">
-                <p class="text-[13px] sm:text-[14px] font-medium leading-[22px] text-[#004EEB] -tracking-[0.03em]">
-                  ${item.monthly}
-                </p>
-                <p class="text-[13px] sm:text-[14px] font-medium leading-[22px] text-[#101828] -tracking-[0.03em]">
-                  ${item.total}
-                </p>
-              </div>
-            </div>
-          </a>
-        `;
-        $grid.append(card);
-      });
-    }
 
-    // Initial render (only first 4)
-    renderItems(4);
+          </div>
 
-    
+        </a>
+      `;
+
+      $grid.append(card);
+    });
   }
+
+  // Initial render
+  renderItems(6);
+}
 
   // ---------- PHONES & TABLETS ----------
   const phones = [
@@ -240,6 +252,20 @@ $("#catPrev").click(function () {
       total: "₦2,640,000.00",
       link: "./product-pages/samsungS23.html",
     },
+     {
+      name: "Apple iPhone 16 – 8GB 256GB",
+      image: "./assets/images/iphone16.jpg",
+      monthly: "₦140,625.00/month",
+      total: "₦1,687,500.00",
+      link: "./product-pages/iphone16.html",
+    },
+    {
+      name: "Apple iPhone 16 Pro – 8GB 256GB",
+      image: "./assets/images/iphone16plus.jpg",
+      monthly: "₦196,354.17/month",
+      total: "₦2,356,250.00",
+      link: "./product-pages/iphone16pro.html",
+    },
   ];
 
   renderCategory("#phonesGrid", "#viewAllPhones", phones);
@@ -268,6 +294,20 @@ $("#catPrev").click(function () {
       link: "./product-pages/mora43.html",
     },
     {
+      name: "Hisense 55-inch Smart UHD TV",
+      image: "./assets/images/Hisense.png",
+      monthly: "₦38,083.33/month",
+      total: "₦1,177,000.00",
+      link: "./product-pages/hisense55.html",
+    },
+    {
+      name: "BRUHM Single Door Refrigerator",
+      image: "./assets/images/refrigerator.png",
+      monthly: "₦33,000.00/month",
+      total: "₦396,000.00",
+      link: "./product-pages/bruhm-fridge.html",
+    },
+     {
       name: "Hisense 55-inch Smart UHD TV",
       image: "./assets/images/Hisense.png",
       monthly: "₦38,083.33/month",
@@ -315,6 +355,20 @@ const cooling = [
     total: "₦321,500.00",
     link: "./product-pages/bruhm-freezer.html",
   },
+    {
+    name: "Kenstar Freezer 142L Adjustable",
+    image: "./assets/images/kenstar freezer.jpg",
+    monthly: "₦2,875.00/month",
+    total: "₦34,500.00",
+    link: "./product-pages/kenstar-freezer.html",
+  },
+  {
+    name: "BRUHM 205L, 2 Glass Shelve",
+    image: "./assets/images/bruhum.jpg",
+    monthly: "₦26,791.67/month",
+    total: "₦321,500.00",
+    link: "./product-pages/bruhm-freezer.html",
+  },
 ];
 
 renderCategory("#coolingGrid", "#viewAllCooling", cooling);
@@ -336,6 +390,20 @@ renderCategory("#coolingGrid", "#viewAllCooling", cooling);
       link: "./product-pages/servo-stabilizer.html",
     },
     {
+      name: "Solar Panel ZN SHINE 605W",
+      image: "./assets/images/shinesolar.png",
+      monthly: "₦2,875.00/month",
+      total: "₦34,500.00",
+      link: "./product-pages/shine-solar.html",
+    },
+    {
+      name: "Growatt 10KW Inverter Hybrid",
+      image: "./assets/images/growatt.jpg",
+      monthly: "₦38,083.33/month",
+      total: "₦1,177,000.00",
+      link: "./product-pages/growatt-inverter.html",
+    },
+        {
       name: "Solar Panel ZN SHINE 605W",
       image: "./assets/images/shinesolar.png",
       monthly: "₦2,875.00/month",
@@ -371,6 +439,20 @@ renderCategory("#coolingGrid", "#viewAllCooling", cooling);
       link: "./product-pages/mama-pride.html",
     },
     {
+      name: "25kg MAMA GOLD Rice",
+      image: "./assets/images/mamagold.jpg",
+      monthly: "₦2,875.00/month",
+      total: "₦34,500.00",
+      link: "./product-pages/mama-gold.html",
+    },
+    {
+      name: "25kg Mama’s Pride Parboiled Rice",
+      image: "./assets/images/25kgmama.png",
+      monthly: "₦38,083.33/month",
+      total: "₦1,177,000.00",
+      link: "./product-pages/mama-pride-25kg.html",
+    },
+     {
       name: "25kg MAMA GOLD Rice",
       image: "./assets/images/mamagold.jpg",
       monthly: "₦2,875.00/month",
