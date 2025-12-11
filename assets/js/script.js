@@ -25,36 +25,72 @@ $(document).ready(function () {
     }
   });
   
-// ============================
-// DESKTOP CART TOGGLE
-// ============================
+/*******************************************
+ * CART TOOLTIP — SHOW ITEM COUNT ON HOVER
+ *******************************************/
+function updateCartTooltip() {
+    let cartCount = parseInt($("#cartBadge").text().trim());
+
+    let message = "";
+
+    if (cartCount === 0) {
+        message = "Your cart is empty";
+    } else if (cartCount === 1) {
+        message = "1 item in cart";
+    } else {
+        message = `${cartCount} items in cart`;
+    }
+
+    $("#cartTooltip").text(message);
+}
+
+// Run immediately on page load
+updateCartTooltip();
+
+// ⭐ HOVER LOGIC (USE #cartContainer — NOT #cartWrapper)
+$("#cartContainer").hover(
+    function () {
+        updateCartTooltip();
+        $("#cartTooltip").removeClass("hidden");
+    },
+    function () {
+        $("#cartTooltip").addClass("hidden");
+    }
+);
+
+
+/*******************************************
+ * DESKTOP CART TOGGLE
+ *******************************************/
 $("#cartContainer").on("click", function (e) {
     e.stopPropagation();
     $("#cartDropdown").toggleClass("hidden");
-    $("#mobileCartDropdown").addClass("hidden"); // close mobile dropdown
+    $("#mobileCartDropdown").addClass("hidden");
 });
 
-// ============================
-// MOBILE CART TOGGLE (CORRECTED)
-// ============================
-// This uses #mobileCartBtn — the REAL ID inside the mobile menu
+
+/*******************************************
+ * MOBILE CART TOGGLE
+ *******************************************/
 $("#mobileCartBtn").on("click", function (e) {
     e.stopPropagation();
     $("#mobileCartDropdown").toggleClass("hidden");
-    $("#cartDropdown").addClass("hidden"); // close desktop dropdown
+    $("#cartDropdown").addClass("hidden");
 });
 
-// ============================
-// CLICK OUTSIDE CLOSES ALL
-// ============================
+
+/*******************************************
+ * CLICK OUTSIDE — CLOSE ALL CART DROPDOWNS
+ *******************************************/
 $(document).on("click", function () {
     $("#cartDropdown").addClass("hidden");
     $("#mobileCartDropdown").addClass("hidden");
 });
 
-// ============================
-// PREVENT CLOSING WHEN CLICKING INSIDE DROPDOWN
-// ============================
+
+/*******************************************
+ * PREVENT CLOSING WHEN CLICKING INSIDE DROPDOWN
+ *******************************************/
 $("#cartDropdown, #mobileCartDropdown").on("click", function (e) {
     e.stopPropagation();
 });
@@ -607,3 +643,137 @@ $(document).on("click", function (event) {
     $dropdown.addClass("hidden");
   }
 });
+
+// ============================================
+// HOME HEADER: SHOW USER DATA WHEN LOGGED IN
+// ============================================
+
+function loadHomeHeaderUserUI() {
+    const savedUser = JSON.parse(localStorage.getItem("faadaakaaActiveUser"));
+
+    const authButtons = document.getElementById("authButtons"); 
+    const rightHeader = document.getElementById("rightHeader"); 
+
+    if (!authButtons || !rightHeader) return;
+
+    if (!savedUser) {
+        // Not logged in → show Login + Signup
+        authButtons.classList.remove("hidden");
+        return;
+    }
+
+    // Logged in → hide login/signup
+    authButtons.classList.add("hidden");
+
+    // Extract user info
+    const first = savedUser.firstName || "";
+    const last = savedUser.lastName || "";
+    const wallet = Number(savedUser.walletBalance || 0);
+
+    // initials
+    const initials = 
+        (first.charAt(0) + last.charAt(0)).toUpperCase();
+
+    // Build UI exactly like your account header
+    const userUI = `
+        <div id="headerUserSection" class="hidden lg:flex items-center gap-[16px] relative">
+
+            <!-- Wallet -->
+            <div class="flex items-center gap-[6px]">
+                <span class="text-[#475467] text-[12px]">Wallet:</span>
+                <span class="text-[#004EEB] text-[14px] font-[600]">
+                    ₦${wallet.toLocaleString()}
+                </span>
+            </div>
+
+            <!-- User Initials -->
+            <div id="headerInitials"
+                 class="w-[24px] h-[24px] bg-[#EAECF0] rounded-full 
+                        flex items-center justify-center text-[#344054]
+                        text-[10px] font-[600] uppercase cursor-pointer">
+                ${initials}
+            </div>
+
+            <!-- Hi Name -->
+            <div id="headerUserDropdownBtn"
+                 class="flex items-center gap-[4px] cursor-pointer">
+                <span class="text-[#344054] text-[14px]">
+                    Hi ${first}
+                </span>
+                <i class="fa-solid fa-chevron-down text-[#475467] text-[10px]"></i>
+            </div>
+
+            <!-- Dropdown -->
+            <div id="headerUserDropdown"
+                 class="hidden absolute right-0 top-[36px] w-[180px] 
+                        bg-white border border-[#EAECF0] rounded-[10px] 
+                        shadow-lg z-[999]">
+                
+                <a href="account.html" 
+                   class="block px-4 py-2 text-[14px] hover:bg-[#F5F7FA]">
+                    My Account
+                </a>
+
+                <a href="account.html#wallet" 
+                   class="block px-4 py-2 text-[14px] hover:bg-[#F5F7FA]">
+                    Wallet: ₦${wallet.toLocaleString()}
+                </a>
+
+                <button id="headerLogout"
+                        class="w-full text-left px-4 py-2 text-[#D92D20] hover:bg-[#FEE4E2]">
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+    // Insert user UI next to the cart wrapper
+    rightHeader.insertAdjacentHTML("afterend", userUI);
+
+    // Reveal it
+    document.getElementById("headerUserSection").classList.remove("hidden");
+}
+
+loadHomeHeaderUserUI();
+
+
+// ============================================
+// TOGGLE DROPDOWN
+// ============================================
+
+document.addEventListener("click", function (e) {
+    const btn = document.getElementById("headerUserDropdownBtn");
+    const drop = document.getElementById("headerUserDropdown");
+
+    if (!btn || !drop) return;
+
+    if (btn.contains(e.target)) {
+        drop.classList.toggle("hidden");
+    } else {
+        drop.classList.add("hidden");
+    }
+});
+
+// ============================================
+// LOGOUT
+// ============================================
+
+document.addEventListener("click", function (e) {
+    if (e.target.id === "headerLogout") {
+        localStorage.removeItem("faadaakaaActiveUser");
+        window.location.href = "index.html";
+    }
+});
+
+// Completely Remove Login and Signup When User Is Logged In
+(function removeAuthButtonsIfLoggedIn() {
+    const savedUser = JSON.parse(localStorage.getItem("faadaakaaActiveUser"));
+    const authButtons = document.getElementById("authButtons");
+
+    // If the user is logged in, remove login/signup entirely
+    if (savedUser && authButtons) {
+        authButtons.remove();   // remove from the DOM permanently
+    }
+})();

@@ -61,9 +61,9 @@
     <div class="h-[1px] bg-[#E4E7EC] my-[6px] md:hidden"></div>
 
     <div class="flex items-center justify-center md:justify-end gap-[10px] text-[13px] font-[500] md:mt-0">
-      <a href="#" class="hover:text-[#155EEF]">Terms</a>
+      <a href="terms.html" class="hover:text-[#155EEF]">Terms</a>
       <span class="w-[1px] h-[14px] bg-[#D9E4F2]"></span>
-      <a href="#" class="hover:text-[#155EEF]">Privacy</a>
+      <a href="privacy" class="hover:text-[#155EEF]">Privacy</a>
     </div>
   </div>
 </header>
@@ -500,7 +500,7 @@
                 px-[12px] sm:px-[16px]
                 py-[12px] sm:py-0
                 gap-[14px] sm:gap-[0px]
-                sm:items-center">         <!-- RESTORED ALIGNMENT -->
+                sm:items-center">        
 
         <!-- PRODUCT -->
         <div class="w-full sm:w-[244px] flex items-center gap-[10px]">
@@ -759,7 +759,7 @@
                 Total Due Now
             </p>
 
-            <p class="text-[#344054] text-[12px] font-medium text-right leading-[16px]">
+            <p id="totalDueSummary" class="text-[#344054] text-[12px] font-medium text-right leading-[16px]">
                 ₦591,452.00 (40% of ₦1,557,270.00 + shipping)
             </p>
         </div>
@@ -767,19 +767,19 @@
         <!-- ================= ROWS ================= -->
         <div class="w-full h-[44px] flex items-center justify-between px-[24px]">
             <p class="text-[#535862] text-[11px]">Order Value</p>
-            <p class="text-[#344054] text-[12px] font-medium text-right">
+            <p id="orderValueAmount" class="text-[#344054] text-[12px] font-medium text-right">
                 585,000.00 (40% of ₦1,557,270.00)
             </p>
         </div>
 
         <div class="w-full h-[44px] flex items-center justify-between px-[24px]">
             <p class="text-[#535862] text-[11px]">Shipping Cost</p>
-            <p class="text-[#344054] text-[12px] font-medium">₦6,452.00</p>
+            <p id="shippingAmount" class="text-[#344054] text-[12px] font-medium">₦6,452.00</p>
         </div>
 
         <div class="w-full h-[44px] flex items-center justify-between px-[24px]">
             <p class="text-[#535862] text-[12px]">Wallet Balance</p>
-            <p class="text-[#344054] text-[12px] font-medium">₦241.88</p>
+            <p id="walletRowAmount" class="text-[#344054] text-[12px] font-medium">₦241.88</p>
         </div>
 
         <div class="w-full h-[44px] flex items-start justify-between px-[24px]">
@@ -794,7 +794,7 @@
         <div class="w-full h-[44px] flex items-center justify-between px-[24px]">
             <p class="text-[#535862] text-[11px]">Credit Status</p>
 
-            <span class="w-[44px] h-[18px] rounded-[4px]
+            <span id="creditStatusBadge" class="w-[44px] h-[18px] rounded-[4px]
                          bg-[#B42318] text-white
                          text-[11px] font-semibold flex items-center justify-center">
                 Inactive
@@ -986,9 +986,9 @@
 
             <!-- Terms & Privacy (with divider between them) -->
             <div class="flex items-center justify-end gap-[8px] text-[#D0D5DD] text-[14px] leading-[22px]">
-              <a href="#" class="hover:text-white transition-colors">Terms</a>
+              <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
               <span class="block w-px h-[14px] bg-[#667085]"></span>
-              <a href="#" class="hover:text-white transition-colors">Privacy</a>
+              <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
             </div>
           </div>
         </div>
@@ -1036,4 +1036,5 @@
 
 
 <script src="assets/js/script.js"></script>
+<script src="/assets/js/cart.js"></script>
 

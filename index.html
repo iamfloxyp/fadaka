@@ -34,9 +34,9 @@
     </div>
 
     <div class="flex items-center gap-[10px]">
-      <a href="#" class="hover:text-[#0d6efd]">Terms</a>
+      <a href="terms.html" class="hover:text-[#0d6efd]">Terms</a>
       <span class="w-[1px] h-[14px] bg-[#D9E4F2] block"></span>
-      <a href="#" class="hover:text-[#0d6efd]">Privacy</a>
+      <a href="privacy.html" class="hover:text-[#0d6efd]">Privacy</a>
     </div>
   </div>
 
@@ -63,9 +63,9 @@
     <div
       class="flex items-center justify-center md:justify-end gap-[10px] text-[13px] font-[500] md:mt-0"
     >
-      <a href="#" class="hover:text-[#155EEF]">Terms</a>
+      <a href="terms.html" class="hover:text-[#155EEF]">Terms</a>
       <span class="w-[1px] h-[14px] bg-[#D9E4F2]"></span>
-      <a href="#" class="hover:text-[#155EEF]">Privacy</a>
+      <a href="privacy.html" class="hover:text-[#155EEF]">Privacy</a>
     </div>
   </div>
 </header>
@@ -171,12 +171,19 @@
               <i class="fa-solid fa-cart-shopping text-[#475467] text-[16px]"></i>
 
               <!-- Badge -->
-              <span
+              <span id="cartBadge"
                 class="absolute top-[4px] right-[4px] bg-[#475467] 
                        text-white text-[10px] font-[600] leading-[14px] 
                        px-[4px] rounded-full"
               >2</span>
+
             </div>
+                <div 
+                   id="cartTooltip"
+                   class="hidden absolute left-1/2 -translate-x-1/2 top-[45px]
+                    bg-[#344054] text-white text-[12px] font-medium
+                    whitespace-nowrap px-[8px] py-[4px] rounded-[6px] shadow-md z-50">
+                </div>
           </div>
 
           <!-- FULL SHOPPING CART DROPDOWN (UNCHANGED) -->
@@ -264,16 +271,29 @@
 
         </div>
 
-        <span class="text-[#101828] text-[14px] font-[500]">₦100,000</span>
+        <span class="text-[#101828] text-[14px] font-[500]">₦0.00</span>
       </div>
 
-      <!-- LOGIN + SIGNUP -->
-      <div id="authButtons" class="hidden lg:flex  items-center gap-[12px]">
-        <button class="text-[#344054] text-[14px] font-[500] px-[14px] py-[10px] rounded-[8px] hover:text-[#155EEF]">Log in</button>
+      <div id="authButtons" class="hidden lg:flex items-center gap-[12px]">
 
-        <button class="bg-[#155EEF] text-white text-[14px] font-[500] px-[14px] py-[10px] rounded-[8px] hover:bg-[#0047BA]">
-          Sign up
-        </button>
+  <!-- LOGIN BUTTON -->
+  <a href="login.html">
+    <button 
+      class="text-[#344054] text-[14px] font-[500] px-[14px] py-[10px] rounded-[8px] 
+             hover:text-[#155EEF]">
+      Log in
+    </button>
+  </a>
+
+  <!-- SIGNUP BUTTON -->
+  <a href="signUp.html">
+    <button 
+      class="bg-[#155EEF] text-white text-[14px] font-[500] px-[14px] py-[10px] 
+             rounded-[8px] hover:bg-[#0047BA]">
+      Sign up
+    </button>
+  </a>
+
       </div>
 
     </div>
@@ -355,8 +375,8 @@
   </a>
 
    </div>
-      <a href="#" class="text-[#155EEF] text-[14px] mb-[6px]">Login</a>
-      <a href="#" class="text-[#155EEF] text-[14px] mb-[12px]">Signup</a>
+      <a href="login.html" class="text-[#155EEF] text-[14px] mb-[6px]">Login</a>
+      <a href="signUp.html" class="text-[#155EEF] text-[14px] mb-[12px]">Signup</a>
 
       <h4 class="text-[#101828] text-[14px] font-[600] mb-[8px]">Categories</h4>
       <ul class="flex flex-col gap-[6px] text-[#344054] text-[14px]">
@@ -1172,9 +1192,9 @@
 
             <!-- Terms & Privacy (with divider between them) -->
             <div class="flex items-center justify-end gap-[8px] text-[#D0D5DD] text-[14px] leading-[22px]">
-              <a href="#" class="hover:text-white transition-colors">Terms</a>
+              <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
               <span class="block w-px h-[14px] bg-[#667085]"></span>
-              <a href="#" class="hover:text-white transition-colors">Privacy</a>
+              <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
             </div>
           </div>
         </div>
@@ -1219,5 +1239,6 @@
   </section>
 </footer>
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/account.js"></script>
 </body>
 </html>

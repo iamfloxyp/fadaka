@@ -3347,4 +3347,135 @@
     margin-bottom: 8px;
   }
 }
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
 
+.animate-shake {
+  animation: shake 0.3s ease;
+}
+
+ .otp-box {
+    width: 56px;
+    height: 68px;
+    border: 1px solid #D0D5DD;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: #101828;
+    outline: none;
+  }
+
+  .otp-box:focus {
+    border-color: #155EEF;
+  }
+  /* FORCE PERFECT CENTERING FOREVER */
+#otpOverlay {
+    position: fixed !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 5000;
+}
+
+#otpModal {
+    width: 500px;
+    max-width: 95%;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.15);
+    
+    /* This is the magic line */
+    transform: translate(0,0) !important;
+}
+/* Make OTP boxes responsive */
+
+
+/* On smaller screens reduce size */
+@media (max-width: 480px) {
+    .otp-box {
+        width: 40px !important;
+        height: 50px !important;
+        font-size: 20px !important;
+    }
+
+    #otpModal {
+        padding: 18px !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    .otp-box {
+        width: 32px !important;
+        height: 45px !important;
+        font-size: 18px !important;
+    }
+}
+
+/* Apply spacing fixes ONLY on small screens */
+@media screen and (max-width: 640px) {
+
+  #ordersTableBody td,
+  #ordersHeader th {
+    padding: 6px 12px;         /* space inside columns */
+    white-space: nowrap;       /* keep text on a single line */
+  }
+
+  #ordersTableBody td {
+    min-width: 120px;          /* keeps columns from squeezing together */
+  }
+
+  #ordersHeader th {
+    min-width: 130px;          /* spacing for headings */
+  }
+
+  #ordersTableBody tr {
+    border-bottom: 1px solid #EAECF0;   /* cleaner separation */
+  }
+
+  #ordersTableBody td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+/* order meta value styling */
+.order-meta-value {
+    color: #1570EF;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  /* pagination on categories */
+  /* Pagination Buttons */
+.pagination-btn {
+  background-color: #155EEF; /* Faadaakaa Blue */
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  width: 120px; /* Makes them wide */
+  text-align: center;
+}
+
+/* Hover effect */
+.pagination-btn:hover {
+  background-color: #0047BA;
+}
+
+/* Disabled state */
+.pagination-btn.disabled {
+  background-color: #B0C5E8;
+  cursor: not-allowed;
+}
